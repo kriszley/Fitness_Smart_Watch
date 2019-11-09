@@ -1,0 +1,17 @@
+//1 bit D-flip flop
+module dff_async_reset (
+  input wire data,   // Data Input
+  input wire clk,    // Clock Input
+  input wire reset,  // Reset input 
+  output reg q       // Q output
+);
+ 
+//-------------Code Starts Here---------
+always @ ( posedge clk or negedge reset)
+  if (~reset) begin
+    q <= 1'b0;
+  end  else begin
+    q <= data;
+end
+
+endmodule
